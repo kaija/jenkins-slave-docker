@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 1 ]; then
+	exec "$@"
+else
+  echo "use docker run jenkins-slav $JENKINS_URL $SECRET $SLAVE_NAME"
+  java -cp /root/slave.jar hudson.remoting.jnlp.Main -headless -url $@
+fi
